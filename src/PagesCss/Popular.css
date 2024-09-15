@@ -1,0 +1,72 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container for Movie Cards */
+  .popular-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    justify-content: center; /* Center the grid */
+    width: 100%;
+  }
+  
+  /* Title Styling */
+  .tst {
+    font-size: 24px;
+    font-weight: bold;
+    color:#000000 ; /* White text */
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 1024px) {
+    .popular-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px; /* Adjust gap for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .popular-container {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px; /* Adjust gap for tablets */
+    }
+  
+    .tst {
+      font-size: 20px; /* Adjust title size for tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .popular-container {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 5px; /* Adjust gap for small screens */
+    }
+  
+    .tst {
+      font-size: 18px; /* Adjust title size for small screens */
+    }
+  }
+  .load-more-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 20px auto;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .load-more-button:hover {
+    background-color: #0056b3;
+  }
+  

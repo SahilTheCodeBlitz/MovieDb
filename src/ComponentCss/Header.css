@@ -1,0 +1,145 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Dark Mode Header */
+.header {
+  background-color: #333; /* Dark background */
+  color: #ffffff; /* White text */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; /* Ensure header is above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  justify-content: space-between; /* Ensure correct spacing */
+}
+
+/* Title */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 20px;
+  max-width: max-content;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Add a vertical separator between navigation links */
+.nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  position: relative;
+  padding: 0 10px; /* Added padding for better spacing */
+}
+
+.nav-link:not(:last-child)::after {
+  color: #ffffff;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Search Container */
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555; /* Dark gray background for input */
+  color: #ffffff; /* White text */
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444; /* Dark background for button */
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: auto; /* Push hamburger to the right */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between; /* Ensure search and hamburger are spaced */
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px; /* Adjusted to start below header */
+    right: 0; /* Align dropdown to the right */
+    width: 200px; /* Set a max-width for dropdown */
+    background-color: #333;
+    display: none;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for dropdown */
+    z-index: 1001; /* Ensure dropdown is above content */
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .search-container {
+    flex-grow: 1; /* Allows the search container to expand */
+    margin: 0 10px; /* Space between title and hamburger */
+  }
+
+  .search-input {
+    width: 100%; /* Full width for input on small screens */
+  }
+}
+
+/* Ensure content is not hidden under the fixed header */
+body {
+  padding-top: 70px; /* Adjust to match header height */
+}
