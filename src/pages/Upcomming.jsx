@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../PagesCss/Popular.css';
-import MovieCard from '../Components/MovieCard';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../PagesCss/Popular.css";
+// import MovieCard from '../Components/MovieCard.jsx';
+import MovieCard from "../Components/MovieCard.jsx";
 
 export const Upcomming = () => {
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,9 @@ export const Upcomming = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}`);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/upcoming?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}`
+        );
         const data = await response.json();
         if (currentPage === 1) {
           setMovies(data.results); // Set movies on the first page load
@@ -21,7 +24,7 @@ export const Upcomming = () => {
         }
         setHasMore(data.page < data.total_pages); // Check if there are more pages
       } catch (error) {
-        console.error('Error fetching the upcoming movies:', error);
+        console.error("Error fetching the upcoming movies:", error);
       }
     };
 
